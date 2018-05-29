@@ -2,9 +2,63 @@
 
 Express module to query a FastCGI authorization server
 
-## TODO
+## SYNOPSIS
 
-All...
+```
+var express = require('express');
+var app = express();
+var FcgiAuthz = require('./');
+handler = FcgiAuthz({
+  host: '127.0.0.1',
+  port: 9090
+});
+
+app.use(handler);
+
+app.get('/', function(req, res) {
+  return res.send('Hello ' + req.upstreamHeaders['auth-user'] + ' !');
+});
+app.listen(3000, function() {
+  return console.log('Example app listening on port 3000!');
+});
+```
+
+## DESCRIPTION
+
+fastcgi-authz-client is an [Express](https://github.com/expressjs/express#readme)
+handler that verify upon an upstream FastCGI server if client is
+authorizated to get this URL _(like Nginx `auth_request`)_.
+
+This can be used with [LemonLDAP::NG](https://lemonldap-ng.org) in a
+[SSO-as-a-Service (SSOaaS)](https://lemonldap-ng.org/documentation/2.0/ssoaas)
+system.
+
+## PARAMETERS
+
+fastcgi-authz-client gives any parameters (except PARAMS) to
+`fastcgi-client`. See
+its [documentation](https://github.com/LastLeaf/node-fastcgi-client) for more.
+
+### PARAMS parameter
+
+This parameter can be used to add a custom parameter in FastCGI request. For
+example to give `RULES_URL` to Lemonldap::NG SSOaaS server:
+
+```
+var express = require('express');
+var app = express();
+var FcgiAuthz = require('./');
+handler = FcgiAuthz({
+  host: '127.0.0.1',
+  port: 9090,
+  PARAMS: {
+    RULES_URL: 'http://my-server/rules.json'
+  }
+});
+
+app.use(handler);
+...
+```
 
 ## COPYRIGHT AND LICENSE
 
