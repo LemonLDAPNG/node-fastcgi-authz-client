@@ -1,0 +1,39 @@
+{
+  "name": "fastcgi-authz-client",
+  "version": "0.1.0",
+  "description": "Express module to query a FastCGI authorization server",
+  "main": "index.js",
+  "maintainers": [{
+    "name": "Xavier Guimard",
+    "email": "x.guimard@free.fr"
+  }],
+  "scripts": {
+    "build": "grunt",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LemonLDAPNG/node-fastcgi-authz-client.git"
+  },
+  "keywords": [
+    "FastCGI",
+    "Lemonldap::NG",
+    "SSOaaS",
+    "SSO"
+  ],
+  "author": "Xavier Guimard <x.guimard@free.fr>",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/LemonLDAPNG/node-fastcgi-authz-client/issues"
+  },
+  "homepage": "https://github.com/LemonLDAPNG/node-fastcgi-authz-client#readme",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-coffee": "*",
+    "node-fastcgi": "*",
+    "mocha": "*"
+  },
+  "dependencies": {
+    "node-fastcgi": "*"
+  }
+}
