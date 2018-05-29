@@ -1,6 +1,6 @@
 {
   "name": "fastcgi-authz-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Express module to query a FastCGI authorization server",
   "main": "index.js",
   "maintainers": [{

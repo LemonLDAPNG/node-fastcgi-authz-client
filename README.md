@@ -1,4 +1,4 @@
-# node-fastcgi-authz-client
+# fastcgi-authz-client
 
 Express module to query a FastCGI authorization server
 
@@ -7,7 +7,7 @@ Express module to query a FastCGI authorization server
 ```
 var express = require('express');
 var app = express();
-var FcgiAuthz = require('./');
+var FcgiAuthz = require('fastcgi-authz-client');
 handler = FcgiAuthz({
   host: '127.0.0.1',
   port: 9090
@@ -47,7 +47,7 @@ example to give `RULES_URL` to Lemonldap::NG SSOaaS server:
 ```
 var express = require('express');
 var app = express();
-var FcgiAuthz = require('./');
+var FcgiAuthz = require('fastcgi-authz-client');
 handler = FcgiAuthz({
   host: '127.0.0.1',
   port: 9090,
