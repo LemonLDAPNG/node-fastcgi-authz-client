@@ -13,22 +13,26 @@ class FCGIClient
 		@client = connector	args
 
 	run: (req, res, next) ->
+		q = req.originalUrl.replace(new RegExp("^#{req.path}\\?*"), '')
 		query =
-			HOST: req.headers.host
-			QUERY_STRING: '',
-			REQUEST_METHOD: 'GET'
-			CONTENT_TYPE: ''
-			CONTENT_LENGTH: ''
-			REQUEST_URI: '/helloworld.php'
+			HOST: req.hostname
+			QUERY_STRING: q
+			REQUEST_METHOD: req.method
+			CONTENT_LENGTH: '0'
+			REQUEST_URI: req.originalUrl
+			PATH_INFO: req.path
 			SERVER_PROTOCOL: 'HTTP/1.1'
 			GATEWAY_INTERFACE: 'CGI/1.1'
-			REMOTE_ADDR: '127.0.0.1'
-			REMOTE_PORT: 12345
-			SERVER_ADDR: '127.0.0.1'
-			SERVER_PORT: 80
-			SERVER_NAME: '127.0.0.1'
+			REMOTE_ADDR: req.ip
 		for k,v of req.headers
 			v = v.toUpperCase().replace /-/g, '_'
 			query[k] = "HTTP_#{v}"
+		client.request query, (err, req) ->
+			return res.status(500).send err if err
+			request.stdout.on 'data', (data) ->
+				console.log data
+			request.stdout.on 'end', ->
+				# TODO read status, set headers, in req.upstream...
+				return next()
 
 module.exports = FCGIClient
