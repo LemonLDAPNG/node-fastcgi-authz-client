@@ -30,7 +30,7 @@
   "devDependencies": {
     "grunt": "*",
     "grunt-contrib-coffee": "*",
-    "node-fastcgi": "*",
+    "fastcgi-client": "*",
     "mocha": "*"
   },
   "dependencies": {
