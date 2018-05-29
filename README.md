@@ -8,7 +8,7 @@ All...
 
 ## COPYRIGHT AND LICENSE
 
-Copyright (C) 2016-2018 by [Xavier Guimard](mailto:x.guimard@free.fr)
+Copyright (C) 2018 by [Xavier Guimard](mailto:x.guimard@free.fr)
 
 This library is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
