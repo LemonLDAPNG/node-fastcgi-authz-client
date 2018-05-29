@@ -60,6 +60,12 @@ app.use(handler);
 ...
 ```
 
+## RESPONSE HEADERS
+
+fastcgi-authz-client stores FastCGI response header in `req.upstreamHeaders`
+_(keys in lower case)_. You can so use them in Express application
+_(see synopsis)_
+
 ## COPYRIGHT AND LICENSE
 
 Copyright (C) 2018 by [Xavier Guimard](mailto:x.guimard@free.fr)
