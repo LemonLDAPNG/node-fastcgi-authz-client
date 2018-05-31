@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var handler = require('./');
+var handler = require('fastcgi-authz-client');
 handler = handler({
   host: '127.0.0.1',
   port: 9090
