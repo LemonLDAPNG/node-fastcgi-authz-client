@@ -27,7 +27,7 @@ app.listen(3000, function() {
 
 fastcgi-authz-client is an [Express](https://github.com/expressjs/express#readme)
 handler that verify upon an upstream FastCGI server if client is
-authorizated to get this URL _(like Nginx `auth_request`)_.
+authorizated to get this URL _([like Nginx `auth_request`](https://nginx.org/en/docs/http/ngx_http_auth_request_module.html))_.
 
 This can be used with [LemonLDAP::NG](https://lemonldap-ng.org) in a
 [SSO-as-a-Service (SSOaaS)](https://lemonldap-ng.org/documentation/2.0/ssoaas)
